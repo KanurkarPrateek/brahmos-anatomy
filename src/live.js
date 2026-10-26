@@ -90,7 +90,8 @@
   const fp = $("#flightPath");
   const L = fp.getTotalLength();
   const trail = $("#trail");
-  trail.style.strokeDasharray = `${L} ${L}`;
+  const trailGlow = $("#trailGlow");
+  trail.style.strokeDasharray = trailGlow.style.strokeDasharray = `${L} ${L}`;
   const lenAtX = (x) => {
     let lo = 0, hi = L;
     for (let i = 0; i < 30; i++) { const m = (lo + hi) / 2; if (fp.getPointAtLength(m).x < x) lo = m; else hi = m; }
@@ -130,7 +131,7 @@
     const hit = f >= F_HIT;
     mis.setAttribute("transform", `translate(${q.x.toFixed(1)} ${q.y.toFixed(1)}) rotate(${ang.toFixed(1)}) scale(.9)`);
     mis.style.opacity = hit ? 0 : 1;
-    trail.style.strokeDashoffset = (L - at).toFixed(1);
+    trail.style.strokeDashoffset = trailGlow.style.strokeDashoffset = (L - at).toFixed(1);
     const boosting = f < F_SEP;
     misBoost.style.opacity = boosting ? 1 : 0;
     const flick = 0.9 + Math.random() * 0.2;
@@ -302,6 +303,57 @@
     };
     requestAnimationFrame(tick);
   });
+
+  // stars over the launch sky
+  {
+    let st = "";
+    for (let i = 0; i < 170; i++) {
+      const x = Math.random() * 1600, y = Math.random() * 520 * Math.random();
+      const r = Math.random() < 0.08 ? 1.4 : 0.4 + Math.random() * 0.7;
+      st += `<circle cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" r="${r.toFixed(2)}" opacity="${(0.25 + Math.random() * 0.6).toFixed(2)}"${Math.random() < 0.3 ? ` class="tw" style="animation-delay:${(Math.random() * 3).toFixed(2)}s"` : ""}/>`;
+    }
+    $("#stars").innerHTML = st;
+  }
+
+  // page progress, glass header, timeline fill
+  const prog = $("#prog"), topBar = $("#top"), tl = $("#tl"), tlFill = $("#tlFill");
+  const tlItems = $$("#tl li");
+  const onScroll = () => {
+    const max = document.documentElement.scrollHeight - innerHeight;
+    prog.style.width = `${((scrollY / max) * 100).toFixed(2)}%`;
+    topBar.classList.toggle("solid", scrollY > story.offsetHeight - innerHeight * 0.5);
+    const r = tl.getBoundingClientRect();
+    const reach = clamp((innerHeight * 0.62 - r.top) / r.height);
+    tlFill.style.height = `${(reach * 100).toFixed(1)}%`;
+    tlItems.forEach((li) => li.classList.toggle("lit", li.getBoundingClientRect().top + 14 < innerHeight * 0.62));
+  };
+  addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  // spotlight on variant cards
+  $$(".vcard").forEach((c) => c.addEventListener("pointermove", (ev) => {
+    const r = c.getBoundingClientRect();
+    c.style.setProperty("--mx", `${ev.clientX - r.left}px`);
+    c.style.setProperty("--my", `${ev.clientY - r.top}px`);
+  }));
+
+  // big stat counters, started when they come into view
+  const countUp = (el) => {
+    const to = +el.dataset.to, dec = +(el.dataset.dec || 0), t0 = performance.now();
+    const tick = (now) => {
+      const t = still ? 1 : clamp((now - t0) / 1800);
+      const v = to * (1 - (1 - t) ** 4);
+      el.textContent = el.dataset.sep !== undefined ? Math.round(v).toLocaleString("en-US") : v.toFixed(dec);
+      if (t < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+  const io2 = new IntersectionObserver((list) => list.forEach((en) => {
+    if (!en.isIntersecting) return;
+    $$("[data-to]", en.target).forEach(countUp);
+    io2.unobserve(en.target);
+  }), { threshold: 0.4 });
+  $$(".bs").forEach((b) => io2.observe(b));
 
   // reveal blocks
   const io = new IntersectionObserver((list) => list.forEach((en) => { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } }), { threshold: 0.15 });
