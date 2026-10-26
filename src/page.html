@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BrahMos Anatomy</title>
+<meta name="description" content="A scroll story through the BrahMos supersonic cruise missile: every section taken apart, explained, then flown from canister to target.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/*ISO_CSS*/
+/*STYLE*/
+</style>
+</head>
+<body class="iso">
+
+<header class="top">
+  <a class="brand" href="#story"><span class="brand-mark"></span>BRAHMOS<span class="brand-sub">/ anatomy</span></a>
+  <nav>
+    <a href="#story" data-jump="0.2">Anatomy</a>
+    <a href="#launch">Launch</a>
+    <a href="#variants">Variants</a>
+    <a href="#timeline">Timeline</a>
+    <a href="#specs">Specs</a>
+    <a href="https://github.com/prateekkanurkar" class="gh" aria-label="Prateek Kanurkar on GitHub"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a>
+  </nav>
+</header>
+
+<!-- ============ STORY: the missile, whole, then apart ============ -->
+<section id="story" class="story">
+  <div class="stage" id="stage" data-mode="hero">
+    <div class="sky"></div>
+    <div class="fig-wrap"><!--MISSILE--></div>
+    <div class="tags" id="tags"></div>
+
+    <div class="hero-copy beat" data-beat="hero">
+      <p class="eyebrow"><span class="dot"></span>India · Russia · since 1998</p>
+      <h1 class="title" aria-label="BrahMos">
+        <span>B</span><span>R</span><span>A</span><span>H</span><span>M</span><span>O</span><span>S</span>
+      </h1>
+      <p class="lede">One of the fastest cruise missiles in service. Here it is, taken apart one section at a time.</p>
+      <dl class="stats">
+        <div><dt>Length</dt><dd><b data-count="8.4" data-dec="1">0</b> m</dd></div>
+        <div><dt>Launch mass</dt><dd><b data-count="3000" data-sep>0</b> kg</dd></div>
+        <div><dt>Cruise speed</dt><dd>Mach <b data-count="2.8" data-dec="1">0</b></dd></div>
+        <div><dt>Range</dt><dd><b data-count="290">0</b>–<b data-count="800">0</b> km</dd></div>
+      </dl>
+      <p class="scroll-cue"><span class="mouse"><i></i></span>Scroll to take it apart</p>
+    </div>
+
+    <div class="beat center-copy" data-beat="origin">
+      <p class="eyebrow">The name</p>
+      <h2><em>Brahma</em>putra + <em>Mos</em>kva</h2>
+      <p>Two rivers, two countries. BrahMos Aerospace is a joint venture of India's DRDO and Russia's NPO Mashinostroyeniya, set up by an agreement signed on 12 February 1998. The missile grew out of the Russian P-800 Oniks.</p>
+    </div>
+
+    <div class="beat center-copy" data-beat="split">
+      <p class="eyebrow">Anatomy</p>
+      <h2>Seven sections. Two engines.</h2>
+      <p>A rocket to get it moving and a ramjet to keep it fast. Everything else is there to find a target and hit it.</p>
+    </div>
+
+    <div class="beat center-copy" data-beat="outro">
+      <p class="eyebrow">Assembled</p>
+      <h2>Three tonnes in a sealed tube.</h2>
+      <p>It is stored, carried and fired from its own canister. Keep scrolling to watch it launch.</p>
+    </div>
+
+    <!-- one card per stop of the tour -->
+    <div class="cards" id="cards">
+      <article class="card" data-step="0">
+        <header><span class="num">01</span><span class="where">Nose · centre body</span></header>
+        <h3>Active radar seeker</h3>
+        <p class="lead">The cone in the middle of the nose holds the missile's own radar. It stays off for most of the flight and turns on near the end, when the missile has to find its target.</p>
+        <ol class="flow">
+          <li><b>Wakes</b> in the final phase of flight</li>
+          <li><b>Searches</b> the area ahead and picks out its target, even in a group of ships</li>
+          <li><b>Locks on</b> and steers the missile all the way in</li>
+        </ol>
+        <ul class="chips"><li>Active radar homing</li><li>Indian seeker flew 22 Mar 2018</li><li>Picked one target from a group in 2009</li></ul>
+      </article>
+      <article class="card" data-step="1">
+        <header><span class="num">02</span><span class="where">Nose · annular inlet</span></header>
+        <h3>Air intake</h3>
+        <p class="lead">A ramjet has no fan and no compressor. The missile's speed does that job: air rushes into the ring around the cone, and shock waves off the cone slow it down and squeeze it before it reaches the engine.</p>
+        <ol class="flow">
+          <li><b>Air enters</b> the ring around the cone at around Mach 2.8</li>
+          <li><b>Shock waves</b> off the cone slow it down and pack it tighter</li>
+          <li><b>Hot, dense air</b> travels back to the combustor</li>
+        </ol>
+        <ul class="chips"><li>No moving parts</li><li>Only works at supersonic speed</li><li>That's why it needs a booster</li></ul>
+      </article>
+      <article class="card" data-step="2">
+        <header><span class="num">03</span><span class="where">Forward bay</span></header>
+        <h3>Guidance &amp; navigation</h3>
+        <p class="lead">Gyroscopes and accelerometers (an inertial navigation system) track every turn the missile makes. Satellite fixes stop that estimate from drifting, so it stays on course over hundreds of kilometres.</p>
+        <ol class="flow">
+          <li><b>Inertial navigation</b> tracks position from the moment of launch</li>
+          <li><b>GPS, GLONASS and GAGAN</b> correct it along the way, using India's 17 g G3OM receiver chip</li>
+          <li><b>Handover</b> to the radar seeker near the target</li>
+        </ol>
+        <ul class="chips"><li>INS + multi-GNSS</li><li>Reported accuracy ≈ 1 m CEP</li></ul>
+      </article>
+      <article class="card" data-step="3">
+        <header><span class="num">04</span><span class="where">Mid-forward body</span></header>
+        <h3>Warhead</h3>
+        <p class="lead">A conventional semi-armour-piercing warhead, 200 kg on ship and land versions and up to 300 kg on the air-launched one. It is built to punch through first and explode inside.</p>
+        <ol class="flow">
+          <li><b>Hits</b> at nearly three times the speed of sound</li>
+          <li><b>Breaks through</b> a hull or a hardened roof</li>
+          <li><b>Detonates</b> inside the target</li>
+        </ol>
+        <ul class="chips"><li>200–300 kg SAP</li><li>Impact energy grows with speed²</li><li>≈ 9× a subsonic missile of the same mass</li></ul>
+      </article>
+      <article class="card" data-step="4">
+        <header><span class="num">05</span><span class="where">Centre body</span></header>
+        <h3>Fuel tank</h3>
+        <p class="lead">The longest section. It carries liquid fuel for the ramjet. That is the key to range: the ramjet takes oxygen from the air, so the tank only has to hold fuel.</p>
+        <ol class="flow">
+          <li><b>Feeds</b> the ramjet for the whole cruise</li>
+          <li><b>Made in India</b> since DRDO's DMSRDE lab replaced the imported Russian fuel</li>
+          <li><b>Stays liquid</b> in deep cold at high altitude</li>
+        </ol>
+        <ul class="chips"><li>Liquid ramjet fuel</li><li>No oxidiser on board</li></ul>
+      </article>
+      <article class="card" data-step="5">
+        <header><span class="num">06</span><span class="where">Mid-body &amp; tail</span></header>
+        <h3>Wings &amp; control fins</h3>
+        <p class="lead">Four wings in the middle give lift. Four fins at the tail are moved by actuators to steer. Together they let a missile at Mach 2.8 swerve and then dive steeply.</p>
+        <ol class="flow">
+          <li><b>Wings</b> hold it up in thin air at high altitude</li>
+          <li><b>Tail fins</b> pitch, yaw and roll it</li>
+          <li><b>S-turns</b> near the target make it hard to intercept</li>
+        </ol>
+        <ul class="chips"><li>Four wings, four fins in an X</li><li>"S" manoeuvre at Mach 2.8</li><li>Steep dive for land targets</li></ul>
+      </article>
+      <article class="card" data-step="6">
+        <header><span class="num">07</span><span class="where">Aft body · stage two</span></header>
+        <h3>Liquid-fuel ramjet</h3>
+        <p class="lead">This engine does most of the work. Squeezed air from the intake mixes with fuel, burns in the combustion chamber and blasts out of the nozzle. It holds the missile near Mach 2.8 for the whole cruise.</p>
+        <ol class="flow">
+          <li><b>Air</b> arrives from the intake already compressed</li>
+          <li><b>Fuel</b> is sprayed in and burned behind flame holders</li>
+          <li><b>Exhaust</b> leaves the nozzle and pushes the missile</li>
+        </ol>
+        <ul class="chips"><li>Air-breathing</li><li>More fuel-efficient than a rocket</li><li>Design from NPO Mashinostroyeniya</li></ul>
+      </article>
+      <article class="card" data-step="7">
+        <header><span class="num">08</span><span class="where">Tail · stage one</span></header>
+        <h3>Solid rocket booster</h3>
+        <p class="lead">A ramjet can't start from a standstill, so a solid rocket fires first. It sits inside the ramjet's empty combustion chamber, a layout taken from the P-800 Oniks. This keeps the missile short.</p>
+        <ol class="flow">
+          <li><b>Fires</b> and lifts the missile out of its canister</li>
+          <li><b>Accelerates</b> it to supersonic speed (around Mach 2)</li>
+          <li><b>Burns out</b> and is pushed out of the tail, leaving the chamber free for the ramjet</li>
+        </ol>
+        <ul class="chips"><li>Solid propellant</li><li>Smaller booster on BrahMos-A</li><li>Drops away after burnout</li></ul>
+      </article>
+    </div>
+
+    <nav class="rail" id="rail" aria-label="Components">
+      <div class="rail-bar"><i id="railFill"></i></div>
+      <ol>
+        <li data-go="0">Seeker</li><li data-go="1">Intake</li><li data-go="2">Guidance</li><li data-go="3">Warhead</li>
+        <li data-go="4">Fuel tank</li><li data-go="5">Wings &amp; fins</li><li data-go="6">Ramjet</li><li data-go="7">Booster</li>
+      </ol>
+    </nav>
+
+    <div class="hud">
+      <span>FIG 1 · BRAHMOS · 3D · DRAG TO LOOK AROUND</span>
+      <span id="hudState">ASSEMBLED</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LAUNCH: canister to target ============ -->
+<section id="launch" class="launch">
+  <div class="lstage" id="lstage">
+    <div class="lhead">
+      <p class="eyebrow">Flight</p>
+      <h2>From canister to target</h2>
+    </div>
+    <svg class="flight" id="flight" viewBox="0 0 1600 800" preserveAspectRatio="xMidYMid meet" aria-label="Side view of a BrahMos flight: vertical launch from a canister, booster burn, booster drop-off, ramjet cruise at high altitude, drop to sea-skimming height, and the final run to a ship.">
+      <defs>
+        <linearGradient id="skyG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#05070b"/><stop offset=".7" stop-color="#0b1220"/><stop offset="1" stop-color="#13202e"/></linearGradient>
+        <linearGradient id="seaG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0f2234"/><stop offset="1" stop-color="#05090f"/></linearGradient>
+        <linearGradient id="trailG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8b98a8" stop-opacity=".05"/><stop offset="1" stop-color="#c9d3df" stop-opacity=".5"/></linearGradient>
+        <radialGradient id="flashG"><stop offset="0" stop-color="#fff7e0"/><stop offset=".3" stop-color="#ffb347"/><stop offset=".7" stop-color="#ff5a1f" stop-opacity=".5"/><stop offset="1" stop-color="#ff3d00" stop-opacity="0"/></radialGradient>
+        <radialGradient id="glowG"><stop offset="0" stop-color="#ffd27a" stop-opacity=".9"/><stop offset="1" stop-color="#ff6a1a" stop-opacity="0"/></radialGradient>
+      </defs>
+      <rect width="1600" height="800" fill="url(#skyG)"/>
+      <!-- altitude scale -->
+      <g class="axis">
+        <path d="M70 140V668"/>
+        <g><path d="M64 170H76"/><text x="84" y="174">15 km · cruise ceiling</text></g>
+        <g><path d="M64 336H76"/><text x="84" y="340">10 km</text></g>
+        <g><path d="M64 502H76"/><text x="84" y="506">5 km</text></g>
+        <g><path d="M64 660H76"/><text x="84" y="652">3–10 m · sea-skim</text></g>
+      </g>
+      <path class="ceiling" d="M70 170H1560"/>
+      <!-- land and sea -->
+      <path d="M0 668H560C600 668 620 672 640 676H0Z" fill="#141a20"/>
+      <path d="M0 676H640V800H0Z" fill="#0d1116"/>
+      <path d="M560 668C600 668 620 672 640 676H1600V800H560Z" fill="url(#seaG)"/>
+      <g class="waves" id="waves"><path d="M640 690q20-4 40 0t40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0"/><path d="M660 712q20-4 40 0t40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0"/></g>
+      <!-- launcher: 12x12 mobile autonomous launcher with a raised canister -->
+      <g class="launcher" transform="translate(120 600)">
+        <rect x="-10" y="40" width="190" height="16" rx="3"/>
+        <rect x="140" y="12" width="44" height="30" rx="4"/>
+        <rect x="150" y="18" width="18" height="12" rx="1" class="win"/>
+        <g class="wheels"><circle cx="10" cy="60" r="9"/><circle cx="32" cy="60" r="9"/><circle cx="54" cy="60" r="9"/><circle cx="96" cy="60" r="9"/><circle cx="118" cy="60" r="9"/><circle cx="160" cy="60" r="9"/></g>
+        <rect x="48" y="-96" width="24" height="138" rx="3" class="can"/>
+        <path d="M48 -60H72M48 -20H72M48 20H72" class="can-ring"/>
+        <path d="M60 42L100 42L72 10" class="strut"/>
+      </g>
+      <!-- target -->
+      <g class="ship" id="ship" transform="translate(1480 664)">
+        <path d="M-70 0H70L58 14H-58Z"/>
+        <path d="M-40 0V-14H20V0M-10-14V-34H6V-14M-2-34V-50" class="super"/>
+        <path d="M30 -8H54V0H30Z"/>
+      </g>
+      <!-- path and trail -->
+      <path id="flightPath" class="fpath" d="M180 504 L180 430 C180 370 210 330 290 300 C380 268 470 210 600 176 C640 168 680 170 720 170 L1150 170 C1230 170 1250 300 1290 560 C1302 640 1320 658 1360 660 L1420 660"/>
+      <path id="trail" class="trail" d="M180 504 L180 430 C180 370 210 330 290 300 C380 268 470 210 600 176 C640 168 680 170 720 170 L1150 170 C1230 170 1250 300 1290 560 C1302 640 1320 658 1360 660 L1420 660"/>
+      <g id="smoke"></g>
+      <!-- phase pins -->
+      <g class="pins" id="pins"></g>
+      <!-- spent booster -->
+      <g id="spent" class="spent" opacity="0"><rect x="-20" y="-5" width="30" height="10" rx="3"/><path d="M-20 -5L-26 -8V8L-20 5Z"/></g>
+      <!-- the missile, side view, nose along +x -->
+      <g id="mis">
+        <g id="misFlame">
+          <path class="flame-b" d="M-34 0C-60 -9 -96 -4 -128 0C-96 4 -60 9 -34 0Z"/>
+          <path class="flame-r" d="M-34 0C-48 -5 -66 -2 -84 0C-66 2 -48 5 -34 0Z"/>
+        </g>
+        <g id="misBoost"><rect x="-38" y="-5.5" width="12" height="11" rx="2" class="mb"/></g>
+        <path class="mbody" d="M-28 -6.5H34L42 -5.5H46L58 -2Q63 0 58 2L46 5.5H42L34 6.5H-28Z"/>
+        <path class="mfin" d="M-24 -6.5L-18 -15H-10L-8 -6.5ZM4 -6.5L10 -14H18L20 -6.5Z"/>
+        <path class="mfin d" d="M-24 6.5L-18 15H-10L-8 6.5ZM4 6.5L10 14H18L20 6.5Z"/>
+        <path class="mline" d="M10 -6.5V6.5M34 -6.5V6.5"/>
+      </g>
+      <circle id="flash" cx="1460" cy="650" r="0" fill="url(#flashG)"/>
+    </svg>
+
+    <div class="lcards" id="lcards">
+      <article data-ph="0"><span class="num">T−0</span><h3>Sealed in a canister</h3><p>The missile lives in a sealed transport-launch canister. It can fire from a ship's vertical launcher, a 12×12 truck carrying three canisters, a Su-30MKI fighter or a submarine.</p></article>
+      <article data-ph="1"><span class="num">Stage 1</span><h3>Booster ignites</h3><p>The solid rocket fires. The missile leaves the canister, then tips over toward the target as it speeds up.</p></article>
+      <article data-ph="2"><span class="num">Stage 1 → 2</span><h3>Booster drops off, ramjet starts</h3><p>Once it is supersonic, the spent booster is pushed out of the tail and falls away. Air is now coming into the intake fast enough to run the ramjet, and it lights.</p></article>
+      <article data-ph="3"><span class="num">Cruise</span><h3>Fast and high</h3><p>It climbs as high as 15 km, where the thin air means less drag and more range, and holds about Mach 2.8. It can also fly the whole way low, skimming the sea.</p></article>
+      <article data-ph="4"><span class="num">Terminal</span><h3>Down to the waves</h3><p>Near the target it drops to as low as 3–10 m above the water and turns its radar seeker on. That low, it stays below the horizon of the target's radar until it is very close.</p></article>
+      <article data-ph="5"><span class="num">Impact</span><h3>S-turn and strike</h3><p>A weaving "S" manoeuvre at Mach 2.8 makes it harder to shoot down. Against land targets it can dive steeply instead. Defenders have seconds to react.</p>
+        <svg class="s-inset" viewBox="0 0 220 60" aria-label="Seen from above: the missile weaves in an S on its final approach"><path class="s-path" d="M6 30C40 30 50 8 80 8S120 52 150 52 180 30 214 30"/><circle cx="214" cy="30" r="4"/><text x="6" y="56">seen from above</text></svg>
+      </article>
+    </div>
+
+    <div class="readouts">
+      <div><span>Phase</span><b id="rPhase">Ready</b></div>
+      <div><span>Stage</span><b id="rStage">—</b></div>
+      <div><span>Mach</span><b id="rMach">0.0</b></div>
+      <div><span>Altitude</span><b id="rAlt">0 m</b></div>
+    </div>
+    <p class="lnote">Illustrative profile. Actual height, timing and range depend on the mission.</p>
+  </div>
+</section>
+
+<!-- ============ VARIANTS ============ -->
+<section id="variants" class="block">
+  <div class="wrap">
+    <p class="eyebrow">One missile, every platform</p>
+    <h2 class="h2">Land, sea, air and under water</h2>
+    <div class="vgrid">
+      <article class="vcard reveal">
+        <svg viewBox="0 0 120 60"><path d="M6 44H114L104 54H16Z"/><path d="M30 44V30H70V44M46 30V18H60V30M53 18V8"/><rect x="80" y="30" width="16" height="14"/><path d="M84 30V20M92 30V20" class="acc"/></svg>
+        <h3>Ship-launched</h3>
+        <p>Fires from vertical launch cells or angled launchers. It equips about 20 frontline Indian Navy warships. The first vertical launch was from INS <i>Ranvir</i> in 2008.</p>
+      </article>
+      <article class="vcard reveal">
+        <svg viewBox="0 0 120 60"><rect x="8" y="34" width="96" height="10" rx="2"/><rect x="84" y="20" width="24" height="16" rx="2"/><g><circle cx="16" cy="48" r="5"/><circle cx="30" cy="48" r="5"/><circle cx="44" cy="48" r="5"/><circle cx="66" cy="48" r="5"/><circle cx="80" cy="48" r="5"/><circle cx="98" cy="48" r="5"/></g><path d="M20 30L76 14M20 24L76 8" class="acc"/></svg>
+        <h3>Land-based</h3>
+        <p>Mobile Autonomous Launchers on 12×12 trucks. The Indian Army raised its first BrahMos regiment in 2007, and newer blocks add land attack and steep dives.</p>
+      </article>
+      <article class="vcard reveal">
+        <svg viewBox="0 0 120 60"><path d="M10 30L50 26L64 10H72L68 26L104 28Q114 30 104 32L68 34L72 50H64L50 34L10 30Z"/><path d="M40 38H82" class="acc"/></svg>
+        <h3>BrahMos-A · air-launched</h3>
+        <p>Carried under the Su-30MKI. A lighter build (about 2.5 t) with a smaller booster. First fired from the air on 22 November 2017.</p>
+      </article>
+      <article class="vcard reveal">
+        <svg viewBox="0 0 120 60"><path d="M10 34Q10 24 30 24H96Q112 24 112 34Q112 44 96 44H30Q10 44 10 34Z"/><path d="M58 24V14H74V24"/><path d="M84 14V0" class="acc"/></svg>
+        <h3>Submarine-launched</h3>
+        <p>First fired on 20 March 2013 from a pontoon submerged 40–50 m deep off Visakhapatnam. It can strike both ships and land targets.</p>
+      </article>
+      <article class="vcard reveal">
+        <svg viewBox="0 0 120 60"><path d="M24 26H86L96 28Q102 30 96 32L86 34H24Z"/><path d="M28 26L32 18H38L40 26M28 34L32 42H38L40 34"/><path d="M8 30H20" class="acc"/></svg>
+        <h3>BrahMos-NG</h3>
+        <p>"Next Generation": about 6 m long and 1.2–1.5 t, so smaller fighters and ships can carry it. Planned with an AESA radar seeker.</p>
+      </article>
+      <article class="vcard reveal">
+        <svg viewBox="0 0 120 60"><path d="M14 30L30 24H92L112 30L92 36H30Z"/><path d="M40 24L46 16H56L58 24M40 36L46 44H56L58 36"/><path d="M2 30H12" class="acc"/></svg>
+        <h3>BrahMos-II</h3>
+        <p>A planned hypersonic successor with a scramjet, aiming well beyond Mach 5. It is still in development.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TIMELINE ============ -->
+<section id="timeline" class="block">
+  <div class="wrap">
+    <p class="eyebrow">Timeline</p>
+    <h2 class="h2">From a handshake to the front line</h2>
+    <ol class="tl">
+      <li class="reveal"><b>1998</b><p>India and Russia sign the agreement that creates BrahMos Aerospace (12 Feb).</p></li>
+      <li class="reveal"><b>2001</b><p>First test firing from Chandipur, Odisha (12 Jun).</p></li>
+      <li class="reveal"><b>2007</b><p>The Indian Army raises its first BrahMos regiment.</p></li>
+      <li class="reveal"><b>2008</b><p>First land-attack test from INS <i>Rajput</i>, then the first vertical launch from INS <i>Ranvir</i>.</p></li>
+      <li class="reveal"><b>2013</b><p>First launch from under water.</p></li>
+      <li class="reveal"><b>2016</b><p>India joins the MTCR, so the range can go past 290 km.</p></li>
+      <li class="reveal"><b>2017</b><p>First extended-range test (11 Mar). First air launch from a Su-30MKI (22 Nov).</p></li>
+      <li class="reveal"><b>2018</b><p>Indian-built radar seeker flies for the first time.</p></li>
+      <li class="reveal"><b>2022</b><p>The Philippines signs the first export deal, for about US$375 M.</p></li>
+      <li class="reveal"><b>2024</b><p>The first export battery is delivered to the Philippines.</p></li>
+      <li class="reveal"><b>2025</b><p>Reported first combat use, in the May India–Pakistan conflict. A new production site opens in Lucknow.</p></li>
+      <li class="reveal future"><b>2027</b><p>Target date for the 800 km version, now in trials.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ SPECS ============ -->
+<section id="specs" class="block">
+  <div class="wrap spec-wrap">
+    <div>
+      <p class="eyebrow">Spec sheet</p>
+      <h2 class="h2">The numbers</h2>
+      <p class="muted">Public figures. They vary by variant and by source.</p>
+    </div>
+    <table class="spec reveal">
+      <tr><th>Type</th><td>Two-stage supersonic cruise missile</td></tr>
+      <tr><th>Length · diameter</th><td>8.4 m · 0.6 m</td></tr>
+      <tr><th>Launch mass</th><td>3,000 kg (ship/land) · ≈2,500 kg (air)</td></tr>
+      <tr><th>Warhead</th><td>200–300 kg, conventional semi-armour-piercing</td></tr>
+      <tr><th>Propulsion</th><td>Solid rocket booster → liquid-fuel ramjet</td></tr>
+      <tr><th>Speed</th><td>Mach 2.8–3.0</td></tr>
+      <tr><th>Range</th><td>290 km (export) · 450–500 km and more (Indian service) · 800 km version in trials</td></tr>
+      <tr><th>Altitude</th><td>Up to 15 km cruise · 3–10 m sea-skimming</td></tr>
+      <tr><th>Guidance</th><td>INS + satellite navigation mid-course · active radar seeker at the end</td></tr>
+      <tr><th>Makers</th><td>DRDO (India) · NPO Mashinostroyeniya (Russia)</td></tr>
+    </table>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="big">BRAHMOS</p>
+    <p class="muted">An educational explainer built from public sources. Figures differ between sources and variants. Not affiliated with BrahMos Aerospace, DRDO or any government.</p>
+    <p class="src">Sources: <a href="https://en.wikipedia.org/wiki/BrahMos">Wikipedia: BrahMos</a> · <a href="https://missilethreat.csis.org/missile/brahmos/">CSIS Missile Threat</a> · <a href="https://www.wikipedia.com/wiki/Kh-61">Wikipedia: P-800 Oniks</a> · <a href="https://idrw.org/tests-underway-for-800-km-brahmos-missile-with-modified-ramjet-engine-target-readiness-by-2027/">IDRW: 800 km variant</a></p>
+    <p class="src">Drawing built with <a href="https://github.com/wheresryan22/anatomy">Anatomy</a> (MIT). 3D model with <a href="https://threejs.org">Three.js</a>.</p>
+    <p class="love">Made with <span class="heart" aria-label="love">♥</span> by <a href="https://github.com/prateekkanurkar">Prateek Kanurkar</a></p>
+  </div>
+</footer>
+
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<script type="module">
+/*GL*/
+</script>
+<script>
+/*DATA*/
+/*LIVE*/
+</script>
+</body>
+</html>
