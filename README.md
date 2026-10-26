@@ -2,7 +2,7 @@
 
 A scroll story through the BrahMos supersonic cruise missile. A detailed 3D model (Three.js) comes apart into its seven sections, and the camera visits each one: radar seeker, air intake, guidance bay, warhead, fuel tank and wings, ramjet with tail fins, and the solid booster. After that comes the flight from canister to target, the variants, a timeline and a spec sheet.
 
-**Live:** https://kanurkarprateek.github.io/brahmos-anatomy/
+**Live:** https://brahmos.prateekkanurkar.in
 
 ## Build
 
