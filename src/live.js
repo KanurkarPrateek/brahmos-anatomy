@@ -37,6 +37,9 @@
     ["seeker", "Seeker"], ["intake", "Intake"], ["guidance", "Guidance"], ["warhead", "Warhead"],
     ["tank", "Fuel + wings"], ["ramjet", "Ramjet + fins"], ["booster", "Booster"],
   ];
+  const leader = $("#leader"), ldPath = $("#ldPath"), ldDot = $("#ldDot"), reticle = $("#reticle"), ldLabel = $("#ldLabel");
+  const LD = { seeker: "ACTIVE RADAR", intake: "ANNULAR INLET", guidance: "INS + GNSS BAY", warhead: "SAP WARHEAD", tank: "FUEL · WINGS", ramjet: "STAGE 2", booster: "STAGE 1" };
+  let ldStep = -1, ldDrawT = 0;
   const tagsEl = $("#tags");
   const tagEls = TAGS.map(([id, name], i) => {
     const t = document.createElement("div");
@@ -271,6 +274,37 @@
         el.style.left = `${m.a * wx + m.e}px`;
         el.style.top = `${m.d * wy + m.f}px`;
       });
+    }
+
+    // leader line from the text to the part, ending in a reticle
+    if (window.M3D && step >= 0 && !mobile) {
+      const S = STEPS[step];
+      const id = S.parts[0];
+      if (step !== ldStep) {
+        ldStep = step;
+        leader.classList.remove("drawn");
+        ldDrawT = now + 350;
+        ldLabel.textContent = LD[id] || "";
+      }
+      const h = cards[step].querySelector("h3").getBoundingClientRect();
+      const sr = stage.getBoundingClientRect();
+      const a = [h.left - sr.left + Math.min(h.width, 420) + 24, h.top - sr.top + h.height / 2];
+      const b = window.M3D.screen(id, S.sub ? 0.75 : 0);
+      const midX = a[0] + Math.max(30, (b.x - a[0]) * 0.35);
+      const d = `M${a[0].toFixed(1)} ${a[1].toFixed(1)}H${midX.toFixed(1)}L${(b.x - 48).toFixed(1)} ${b.y.toFixed(1)}`;
+      ldPath.setAttribute("d", d);
+      const len = midX - a[0] + Math.hypot(b.x - 48 - midX, b.y - a[1]);
+      ldPath.style.setProperty("--len", Math.ceil(len + 2));
+      ldDot.setAttribute("cx", a[0].toFixed(1));
+      ldDot.setAttribute("cy", a[1].toFixed(1));
+      reticle.setAttribute("transform", `translate(${b.x.toFixed(1)} ${b.y.toFixed(1)})`);
+      ldLabel.setAttribute("x", (b.x + 54).toFixed(1));
+      ldLabel.setAttribute("y", (b.y - 40).toFixed(1));
+      leader.classList.add("on");
+      if (now > ldDrawT) leader.classList.add("drawn");
+    } else {
+      leader.classList.remove("on", "drawn");
+      ldStep = -1;
     }
 
     // launch

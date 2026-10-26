@@ -236,7 +236,7 @@ const paint = (tex, extra = {}) =>
 const M = {
   fin: () => new THREE.MeshPhysicalMaterial({ color: 0x8f948f, roughness: 0.5, metalness: 0.2, clearcoat: 0.3 }),
   ti: () => new THREE.MeshStandardMaterial({ color: 0x6b6258, roughness: 0.32, metalness: 1, side: THREE.DoubleSide }),
-  dark: () => new THREE.MeshStandardMaterial({ color: 0x040506, roughness: 1, metalness: 0.2, side: THREE.DoubleSide }),
+  dark: () => new THREE.MeshStandardMaterial({ color: 0x020203, roughness: 1, metalness: 0, envMapIntensity: 0, side: THREE.DoubleSide }),
   bulk: () => new THREE.MeshStandardMaterial({ map: bulkTex, roughness: 0.38, metalness: 0.85 }),
   radome: () => new THREE.MeshPhysicalMaterial({ color: 0x2b3036, roughness: 0.25, metalness: 0.05, clearcoat: 1, clearcoatRoughness: 0.15 }),
   steel: () => new THREE.MeshStandardMaterial({ color: 0x9aa1a6, roughness: 0.3, metalness: 1 }),
@@ -540,7 +540,12 @@ function part(id, c) {
   });
   g.add(mesh(lathe([[7.0, R], [7.42, R], [7.56, 0.325], [7.7, 0.305], [7.82, 0.285], [7.9, 0.27]]), paint(t)));
   g.add(mesh(lathe([[7.9, 0.27], [7.905, 0.258], [7.9, 0.245]], 96), M.steel()));
-  g.add(mesh(lathe([[7.9, 0.245], [7.3, 0.235]], 96), M.dark(), false));
+  const ductMat = new THREE.MeshBasicMaterial({ color: 0x07090c, side: THREE.DoubleSide });
+  g.add(mesh(lathe([[7.9, 0.245], [7.3, 0.235]], 96), ductMat, false));
+  const ductEnd = new THREE.Mesh(new THREE.CircleGeometry(0.236, 64), new THREE.MeshBasicMaterial({ color: 0x020304 }));
+  ductEnd.rotation.y = Math.PI / 2;
+  ductEnd.position.x = 7.3;
+  g.add(ductEnd);
   g.add(cap(7.0, R, -1));
   for (const a of [45, 135, 225, 315]) {
     const st = mesh(new THREE.BoxGeometry(0.12, 0.05, 0.014), M.steel(), false);
@@ -647,7 +652,7 @@ const SHOTS = [
   { at: "guidance", dist: 3.1, az: 14, el: 38, dx: 0 },
   { at: "warhead", dist: 3.8, az: -14, el: 20, dx: 0 },
   { at: "tank", dist: 5.0, az: 18, el: 24, dx: 0 },
-  { at: ["tank", "ramjet"], dist: 9.5, az: -24, el: 30, dx: 0 },
+  { at: ["tank", "ramjet"], dist: 11, az: -24, el: 30, dx: 0, fx: 0.6 },
   { at: "ramjet", dist: 4.6, az: -52, el: 16, dx: -0.6 },
   { at: "booster", dist: 4.4, az: -60, el: 12, dx: -0.4 },
 ];
@@ -666,7 +671,7 @@ function shotFor() {
     const S = SHOTS[state.step];
     const ids = [].concat(S.at);
     const x = ids.reduce((a, id) => a + partCentre(id), 0) / ids.length + S.dx;
-    return { tx: x, ty: 0, tz: 0, dist: S.dist * m, az: S.az, el: S.el, fx: state.mobile ? 0.5 : 0.64, fy: state.mobile ? 0.34 : 0.5 };
+    return { tx: x, ty: 0, tz: 0, dist: S.dist * m, az: S.az, el: S.el, fx: state.mobile ? 0.5 : S.fx ?? 0.64, fy: state.mobile ? 0.34 : 0.5 };
   }
   const spread = state.e;
   const mid = (partCentre("booster") + partCentre("seeker")) / 2;
@@ -707,7 +712,7 @@ function frame() {
     g.position.x = state.offs[id] || 0;
     const focus = state.mode === "focus";
     const on = state.on.includes(id);
-    const target = !focus || on ? 1 : 0.1;
+    const target = !focus || on ? 1 : 0.035;
     for (const m of g.userData.mats) {
       const want = on && state.sub && !m.userData.sub ? 0.18 : target;
       m.opacity += (want - m.opacity) * k(0.18);
