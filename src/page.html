@@ -262,11 +262,20 @@
       </article>
     </div>
 
-    <div class="readouts">
-      <div><span>Phase</span><b id="rPhase">Ready</b></div>
-      <div><span>Stage</span><b id="rStage">—</b></div>
-      <div><span>Mach</span><b id="rMach">0.0</b></div>
-      <div><span>Altitude</span><b id="rAlt">0 m</b></div>
+    <div class="readouts" aria-live="polite">
+      <div class="ins ins-phase"><span>Phase</span><b id="rPhase">Ready</b><i class="segs" id="rSegs"><u></u><u></u><u></u><u></u><u></u><u></u></i></div>
+      <div class="ins ins-stage"><span>Stage</span><b id="rStage">—</b><i class="stagepips"><u id="pip1"></u><u id="pip2"></u></i></div>
+      <div class="ins ins-mach">
+        <svg viewBox="0 0 100 58" aria-hidden="true">
+          <path class="g-bg" d="M10 52A40 40 0 0 1 90 52"/>
+          <path class="g-fg" id="gMach" d="M10 52A40 40 0 0 1 90 52"/>
+          <g class="g-ticks"><path d="M4.0 52.0L9.0 52.0"/><path d="M10.2 29.0L14.5 31.5"/><path d="M27.0 12.2L29.5 16.5"/><path d="M50.0 6.0L50.0 11.0"/><path d="M73.0 12.2L70.5 16.5"/><path d="M89.8 29.0L85.5 31.5"/><path d="M96.0 52.0L91.0 52.0"/></g>
+          <path class="g-needle" id="gNeedle" d="M50 52L50 18"/>
+          <circle class="g-hub" cx="50" cy="52" r="3"/>
+        </svg>
+        <span>Mach</span><b id="rMach">0.0</b>
+      </div>
+      <div class="ins ins-alt"><i class="tape"><u id="tapeFill"></u><em id="tapeMark"></em></i><div><span>Altitude</span><b id="rAlt">0 m</b></div></div>
     </div>
     <p class="lnote">Illustrative profile. Actual height, timing and range depend on the mission.</p>
   </div>
@@ -357,10 +366,10 @@
     </div>
     <div class="spec-side">
     <div class="bigstats">
-      <div class="bs reveal"><span>Top speed</span><b>Mach <i data-to="2.8" data-dec="1">2.8</i></b><em>≈ 3,450 km/h at sea level</em><s style="--w:93%"></s></div>
-      <div class="bs reveal"><span>Max range</span><b><i data-to="800">800</i> km</b><em>Extended version in trials</em><s style="--w:100%"></s></div>
-      <div class="bs reveal"><span>Cruise ceiling</span><b><i data-to="15">15</i> km</b><em>Or 3–10 m over the sea</em><s style="--w:60%"></s></div>
-      <div class="bs reveal"><span>Launch mass</span><b><i data-to="3000" data-sep>3,000</i> kg</b><em>≈ 2,500 kg air-launched</em><s style="--w:75%"></s></div>
+      <div class="bs reveal" style="--p:0.93"><svg class="ring" viewBox="0 0 120 120" aria-hidden="true"><circle class="ring-bg" cx="60" cy="60" r="52"/><circle class="ring-ticks" cx="60" cy="60" r="42"/><circle class="ring-fg glow" cx="60" cy="60" r="52"/><circle class="ring-fg" cx="60" cy="60" r="52"/></svg><span>Top speed</span><b>Mach <i data-to="2.8" data-dec="1">2.8</i></b><em>≈ 3,450 km/h at sea level</em></div>
+      <div class="bs reveal" style="--p:1.0"><svg class="ring" viewBox="0 0 120 120" aria-hidden="true"><circle class="ring-bg" cx="60" cy="60" r="52"/><circle class="ring-ticks" cx="60" cy="60" r="42"/><circle class="ring-fg glow" cx="60" cy="60" r="52"/><circle class="ring-fg" cx="60" cy="60" r="52"/></svg><span>Max range</span><b><i data-to="800">800</i> km</b><em>Extended version in trials</em></div>
+      <div class="bs reveal" style="--p:0.6"><svg class="ring" viewBox="0 0 120 120" aria-hidden="true"><circle class="ring-bg" cx="60" cy="60" r="52"/><circle class="ring-ticks" cx="60" cy="60" r="42"/><circle class="ring-fg glow" cx="60" cy="60" r="52"/><circle class="ring-fg" cx="60" cy="60" r="52"/></svg><span>Cruise ceiling</span><b><i data-to="15">15</i> km</b><em>Or 3–10 m over the sea</em></div>
+      <div class="bs reveal" style="--p:0.75"><svg class="ring" viewBox="0 0 120 120" aria-hidden="true"><circle class="ring-bg" cx="60" cy="60" r="52"/><circle class="ring-ticks" cx="60" cy="60" r="42"/><circle class="ring-fg glow" cx="60" cy="60" r="52"/><circle class="ring-fg" cx="60" cy="60" r="52"/></svg><span>Launch mass</span><b><i data-to="3000" data-sep>3,000</i> kg</b><em>≈ 2,500 kg air-launched</em></div>
     </div>
     <table class="spec reveal">
       <tr><th>Type</th><td>Two-stage supersonic cruise missile</td></tr>
@@ -379,12 +388,20 @@
 </section>
 
 <footer class="foot">
+  <div class="horizon" aria-hidden="true"></div>
   <div class="wrap">
-    <p class="big">BRAHMOS</p>
+    <p class="big" aria-label="BrahMos"><span>BRAHMOS</span><span class="big-fill" aria-hidden="true">BRAHMOS</span></p>
+    <div class="foot-grid">
+    <div>
     <p class="muted">An educational explainer built from public sources. Figures differ between sources and variants. Not affiliated with BrahMos Aerospace, DRDO or any government.</p>
     <p class="src">Sources: <a href="https://en.wikipedia.org/wiki/BrahMos">Wikipedia: BrahMos</a> · <a href="https://missilethreat.csis.org/missile/brahmos/">CSIS Missile Threat</a> · <a href="https://www.wikipedia.com/wiki/Kh-61">Wikipedia: P-800 Oniks</a> · <a href="https://idrw.org/tests-underway-for-800-km-brahmos-missile-with-modified-ramjet-engine-target-readiness-by-2027/">IDRW: 800 km variant</a></p>
     <p class="src">Drawing built with <a href="https://github.com/wheresryan22/anatomy">Anatomy</a> (MIT). 3D model with <a href="https://threejs.org">Three.js</a>.</p>
-    <p class="love">Made with <span class="heart" aria-label="love">♥</span> by <a href="https://github.com/prateekkanurkar">Prateek Kanurkar</a></p>
+    </div>
+    <div class="foot-side">
+      <p class="love">Made with <span class="heart" aria-label="love">♥</span> by <a href="https://github.com/prateekkanurkar">Prateek Kanurkar</a></p>
+      <a class="totop" href="#story" id="toTop"><span>Back to launch pad</span><i>↑</i></a>
+    </div>
+    </div>
   </div>
 </footer>
 

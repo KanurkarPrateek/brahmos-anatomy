@@ -572,6 +572,68 @@ h2 em,.h2 em{font-family:var(--serif);font-style:italic;font-weight:400;letter-s
 .lcards h3{line-height:1.1;margin:10px 0 12px}
 @media (max-width:860px){.stage[data-mode="focus"] .hud{opacity:0}.hud{transition:opacity .4s}}
 
+/* =================== cockpit readouts =================== */
+.readouts{display:flex;align-items:flex-end;gap:clamp(18px,3vw,44px);padding:0;border:0;background:none;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none;bottom:34px}
+.readouts .ins{position:relative;border:0;padding:0}
+.readouts span{font-size:9.5px;letter-spacing:.2em;color:#7a8692}
+.readouts b{display:block;font:500 22px/1.15 var(--display);color:#fff;text-shadow:0 0 18px #ff9a3c55;font-variant-numeric:tabular-nums;min-width:4ch}
+.segs{display:flex;gap:3px;margin-top:8px}
+.segs u{width:16px;height:4px;border-radius:1px;background:#ffffff14;transition:background .3s,box-shadow .3s}
+.segs u.on{background:var(--accent);box-shadow:0 0 8px var(--accent)}
+.stagepips{display:flex;gap:6px;margin-top:8px}
+.stagepips u{width:9px;height:9px;border-radius:50%;border:1px solid #ff9a3c66;transition:background .3s,box-shadow .3s}
+.stagepips u.on{background:var(--accent);box-shadow:0 0 10px var(--accent)}
+.ins-mach{display:grid;justify-items:center;text-align:center;width:110px}
+.ins-mach svg{width:110px;height:64px;overflow:visible;margin-bottom:-2px}
+.g-bg{fill:none;stroke:#ffffff14;stroke-width:5;stroke-linecap:round}
+.g-fg{fill:none;stroke:url(#machG);stroke:#ff9a3c;stroke-width:5;stroke-linecap:round;filter:drop-shadow(0 0 5px #ff9a3c)}
+.g-ticks path{stroke:#ffffff40;stroke-width:1}
+.g-needle{stroke:#fff;stroke-width:1.6;stroke-linecap:round;transition:transform .15s}
+.g-hub{fill:#fff}
+.ins-mach b{position:absolute;top:30px;left:0;right:0;font-size:18px}
+.ins-mach span{order:3}
+.ins-alt{display:flex;align-items:flex-end;gap:12px}
+.tape{position:relative;display:block;width:6px;height:58px;border-radius:3px;background:repeating-linear-gradient(#ffffff26 0 1px,transparent 1px 8px),#ffffff08}
+.tape u{position:absolute;left:0;right:0;bottom:0;border-radius:3px;background:linear-gradient(#ffcf8a,#ff6a3d);box-shadow:0 0 10px #ff9a3c}
+.tape em{position:absolute;left:-5px;width:16px;height:2px;margin-bottom:-1px;background:#fff;box-shadow:0 0 6px #fff}
+@media (max-width:860px){.readouts{gap:14px}.readouts b{font-size:15px}.ins-mach{width:80px}.ins-mach svg{width:80px;height:46px}.ins-mach b{top:20px;font-size:13px}.segs u{width:9px}.tape{height:44px}}
+
+/* =================== ring gauges in specs =================== */
+.bs{display:grid;grid-template-columns:96px 1fr;grid-template-rows:auto auto auto;column-gap:18px;align-items:center;padding:16px 0;border:0;border-radius:0;background:none;overflow:visible}
+.bs .ring{grid-row:1/4;width:96px;height:96px;transform:rotate(-90deg)}
+.ring-bg{fill:none;stroke:#ffffff0d;stroke-width:5}
+.ring-fg{fill:none;stroke:#ff9a3c;stroke-width:5;stroke-linecap:round;stroke-dasharray:326.7;stroke-dashoffset:326.7;filter:drop-shadow(0 0 6px #ff9a3c88);transition:stroke-dashoffset 1.8s var(--anatomy-ease) .2s}
+.bs.in .ring-fg{stroke-dashoffset:calc(326.7 * (1 - var(--p)))}
+.bs b{margin:4px 0 2px;font-size:clamp(28px,3vw,40px)}
+.bs + .bs{border-left:0}
+.bigstats{gap:8px 32px}
+
+/* =================== footer =================== */
+.foot{padding:160px 0 50px;border-top:0;background:radial-gradient(80% 60% at 50% 0%,#ff9a3c10,transparent 70%)}
+.foot::before{display:none}
+.horizon{position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,#ff9a3c,#ffcf8a,#ff9a3c,transparent);box-shadow:0 0 30px 4px #ff9a3c55}
+.foot .big{position:relative;margin:0 0 50px;line-height:.8;background:none;color:transparent;-webkit-text-stroke:1px #ffffff22;user-select:none}
+.foot .big .big-fill{position:absolute;inset:0;-webkit-text-stroke:0;
+  background:linear-gradient(100deg,transparent 30%,#ffcf8a 45%,#ff9a3c 50%,transparent 65%) 0 0/250% 100% no-repeat,linear-gradient(#ffffff14,#ffffff00 85%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;animation:sweep 6s ease-in-out infinite}
+@keyframes sweep{0%{background-position:120% 0,0 0}60%,100%{background-position:-60% 0,0 0}}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:40px;align-items:end}
+.foot-side{display:grid;justify-items:end;gap:22px}
+.foot-side .love{margin:0;font-size:15px}
+.totop{display:inline-flex;align-items:center;gap:14px;text-decoration:none;font:500 11px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--ink);padding:12px 14px 12px 20px;border-radius:99px;border:1px solid #ff9a3c44;background:#ff9a3c0a;transition:background .3s,border-color .3s,box-shadow .3s}
+.totop i{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#06080b;font-style:normal;font-size:14px;transition:transform .4s var(--anatomy-ease)}
+.totop:hover{background:#ff9a3c1c;border-color:var(--accent);box-shadow:0 0 30px -6px #ff9a3c}
+.totop:hover i{transform:translateY(-4px)}
+@media (max-width:760px){.foot-grid{grid-template-columns:1fr}.foot-side{justify-items:start}}
+@media (prefers-reduced-motion:reduce){.foot .big .big-fill{animation:none}}
+.ring-fg{filter:none;stroke:#ffa955}
+.ring-fg.glow{stroke-width:9;opacity:.35;filter:blur(4px)}
+.bs .ring{overflow:visible}
+@media (max-width:860px){.lnote{display:none}.readouts{bottom:20px}}
+.ring-fg{stroke-width:6;stroke:#ffb366}
+.ring-ticks{fill:none;stroke:#ffffff26;stroke-width:5;stroke-dasharray:1 5.6}
+.bs:hover .ring-fg:not(.glow){stroke:#ffd29a}
+
 </style>
 </head>
 <body class="iso">
@@ -823,11 +885,20 @@ h2 em,.h2 em{font-family:var(--serif);font-style:italic;font-weight:400;letter-s
       </article>
     </div>
 
-    <div class="readouts">
-      <div><span>Phase</span><b id="rPhase">Ready</b></div>
-      <div><span>Stage</span><b id="rStage">—</b></div>
-      <div><span>Mach</span><b id="rMach">0.0</b></div>
-      <div><span>Altitude</span><b id="rAlt">0 m</b></div>
+    <div class="readouts" aria-live="polite">
+      <div class="ins ins-phase"><span>Phase</span><b id="rPhase">Ready</b><i class="segs" id="rSegs"><u></u><u></u><u></u><u></u><u></u><u></u></i></div>
+      <div class="ins ins-stage"><span>Stage</span><b id="rStage">—</b><i class="stagepips"><u id="pip1"></u><u id="pip2"></u></i></div>
+      <div class="ins ins-mach">
+        <svg viewBox="0 0 100 58" aria-hidden="true">
+          <path class="g-bg" d="M10 52A40 40 0 0 1 90 52"/>
+          <path class="g-fg" id="gMach" d="M10 52A40 40 0 0 1 90 52"/>
+          <g class="g-ticks"><path d="M4.0 52.0L9.0 52.0"/><path d="M10.2 29.0L14.5 31.5"/><path d="M27.0 12.2L29.5 16.5"/><path d="M50.0 6.0L50.0 11.0"/><path d="M73.0 12.2L70.5 16.5"/><path d="M89.8 29.0L85.5 31.5"/><path d="M96.0 52.0L91.0 52.0"/></g>
+          <path class="g-needle" id="gNeedle" d="M50 52L50 18"/>
+          <circle class="g-hub" cx="50" cy="52" r="3"/>
+        </svg>
+        <span>Mach</span><b id="rMach">0.0</b>
+      </div>
+      <div class="ins ins-alt"><i class="tape"><u id="tapeFill"></u><em id="tapeMark"></em></i><div><span>Altitude</span><b id="rAlt">0 m</b></div></div>
     </div>
     <p class="lnote">Illustrative profile. Actual height, timing and range depend on the mission.</p>
   </div>
@@ -918,10 +989,10 @@ h2 em,.h2 em{font-family:var(--serif);font-style:italic;font-weight:400;letter-s
     </div>
     <div class="spec-side">
     <div class="bigstats">
-      <div class="bs reveal"><span>Top speed</span><b>Mach <i data-to="2.8" data-dec="1">2.8</i></b><em>≈ 3,450 km/h at sea level</em><s style="--w:93%"></s></div>
-      <div class="bs reveal"><span>Max range</span><b><i data-to="800">800</i> km</b><em>Extended version in trials</em><s style="--w:100%"></s></div>
-      <div class="bs reveal"><span>Cruise ceiling</span><b><i data-to="15">15</i> km</b><em>Or 3–10 m over the sea</em><s style="--w:60%"></s></div>
-      <div class="bs reveal"><span>Launch mass</span><b><i data-to="3000" data-sep>3,000</i> kg</b><em>≈ 2,500 kg air-launched</em><s style="--w:75%"></s></div>
+      <div class="bs reveal" style="--p:0.93"><svg class="ring" viewBox="0 0 120 120" aria-hidden="true"><circle class="ring-bg" cx="60" cy="60" r="52"/><circle class="ring-ticks" cx="60" cy="60" r="42"/><circle class="ring-fg glow" cx="60" cy="60" r="52"/><circle class="ring-fg" cx="60" cy="60" r="52"/></svg><span>Top speed</span><b>Mach <i data-to="2.8" data-dec="1">2.8</i></b><em>≈ 3,450 km/h at sea level</em></div>
+      <div class="bs reveal" style="--p:1.0"><svg class="ring" viewBox="0 0 120 120" aria-hidden="true"><circle class="ring-bg" cx="60" cy="60" r="52"/><circle class="ring-ticks" cx="60" cy="60" r="42"/><circle class="ring-fg glow" cx="60" cy="60" r="52"/><circle class="ring-fg" cx="60" cy="60" r="52"/></svg><span>Max range</span><b><i data-to="800">800</i> km</b><em>Extended version in trials</em></div>
+      <div class="bs reveal" style="--p:0.6"><svg class="ring" viewBox="0 0 120 120" aria-hidden="true"><circle class="ring-bg" cx="60" cy="60" r="52"/><circle class="ring-ticks" cx="60" cy="60" r="42"/><circle class="ring-fg glow" cx="60" cy="60" r="52"/><circle class="ring-fg" cx="60" cy="60" r="52"/></svg><span>Cruise ceiling</span><b><i data-to="15">15</i> km</b><em>Or 3–10 m over the sea</em></div>
+      <div class="bs reveal" style="--p:0.75"><svg class="ring" viewBox="0 0 120 120" aria-hidden="true"><circle class="ring-bg" cx="60" cy="60" r="52"/><circle class="ring-ticks" cx="60" cy="60" r="42"/><circle class="ring-fg glow" cx="60" cy="60" r="52"/><circle class="ring-fg" cx="60" cy="60" r="52"/></svg><span>Launch mass</span><b><i data-to="3000" data-sep>3,000</i> kg</b><em>≈ 2,500 kg air-launched</em></div>
     </div>
     <table class="spec reveal">
       <tr><th>Type</th><td>Two-stage supersonic cruise missile</td></tr>
@@ -940,12 +1011,20 @@ h2 em,.h2 em{font-family:var(--serif);font-style:italic;font-weight:400;letter-s
 </section>
 
 <footer class="foot">
+  <div class="horizon" aria-hidden="true"></div>
   <div class="wrap">
-    <p class="big">BRAHMOS</p>
+    <p class="big" aria-label="BrahMos"><span>BRAHMOS</span><span class="big-fill" aria-hidden="true">BRAHMOS</span></p>
+    <div class="foot-grid">
+    <div>
     <p class="muted">An educational explainer built from public sources. Figures differ between sources and variants. Not affiliated with BrahMos Aerospace, DRDO or any government.</p>
     <p class="src">Sources: <a href="https://en.wikipedia.org/wiki/BrahMos">Wikipedia: BrahMos</a> · <a href="https://missilethreat.csis.org/missile/brahmos/">CSIS Missile Threat</a> · <a href="https://www.wikipedia.com/wiki/Kh-61">Wikipedia: P-800 Oniks</a> · <a href="https://idrw.org/tests-underway-for-800-km-brahmos-missile-with-modified-ramjet-engine-target-readiness-by-2027/">IDRW: 800 km variant</a></p>
     <p class="src">Drawing built with <a href="https://github.com/wheresryan22/anatomy">Anatomy</a> (MIT). 3D model with <a href="https://threejs.org">Three.js</a>.</p>
-    <p class="love">Made with <span class="heart" aria-label="love">♥</span> by <a href="https://github.com/prateekkanurkar">Prateek Kanurkar</a></p>
+    </div>
+    <div class="foot-side">
+      <p class="love">Made with <span class="heart" aria-label="love">♥</span> by <a href="https://github.com/prateekkanurkar">Prateek Kanurkar</a></p>
+      <a class="totop" href="#story" id="toTop"><span>Back to launch pad</span><i>↑</i></a>
+    </div>
+    </div>
   </div>
 </footer>
 
@@ -1859,6 +1938,10 @@ const DATA = {"W":1600,"H":820,"axis":[0.8342361863488463,0.11374447471689564],"
   const lcards = $$("#lcards article");
   const rPhase = $("#rPhase"), rStage = $("#rStage"), rMach = $("#rMach"), rAlt = $("#rAlt");
   const sepPt = fp.getPointAtLength(F_SEP * L);
+  const gMach = $("#gMach"), gNeedle = $("#gNeedle"), tapeFill = $("#tapeFill"), tapeMark = $("#tapeMark");
+  const pip1 = $("#pip1"), pip2 = $("#pip2"), segs = $$("#rSegs u");
+  const GLEN = gMach.getTotalLength();
+  gMach.style.strokeDasharray = `${GLEN} ${GLEN}`;
   const launch = $("#launch");
 
   function drawFlight(lp) {
@@ -1908,6 +1991,14 @@ const DATA = {"W":1600,"H":820,"axis":[0.8342361863488463,0.11374447471689564],"
     if (lp < 0.04) alt = 0;
     else if (q.x < 720) alt = Math.max(0, ((504 - q.y) / 334) * 15000);
     else alt = Math.max(10, ((660 - q.y) / 490) * 15000);
+    gMach.style.strokeDashoffset = (GLEN * (1 - clamp(mach / 3))).toFixed(1);
+    gNeedle.setAttribute("transform", `rotate(${(-90 + 180 * clamp(mach / 3)).toFixed(1)} 50 52)`);
+    const altF = hit ? 0 : clamp(alt / 15000);
+    tapeFill.style.height = `${(altF * 100).toFixed(1)}%`;
+    tapeMark.style.bottom = `${(altF * 100).toFixed(1)}%`;
+    segs.forEach((u, i) => u.classList.toggle("on", i < ph + (hit ? 1 : 0)));
+    pip1.classList.toggle("on", ph >= 1 && boosting);
+    pip2.classList.toggle("on", ph >= 1 && !boosting);
     rAlt.textContent = hit ? "0 m" : alt >= 1000 ? `${(alt / 1000).toFixed(1)} km` : `${Math.round(alt)} m`;
   }
 
@@ -2125,6 +2216,8 @@ const DATA = {"W":1600,"H":820,"axis":[0.8342361863488463,0.11374447471689564],"
     io2.unobserve(en.target);
   }), { threshold: 0.4 });
   $$(".bs").forEach((b) => io2.observe(b));
+
+  $("#toTop").addEventListener("click", (ev) => { ev.preventDefault(); scrollTo({ top: 0, behavior: "smooth" }); });
 
   // reveal blocks
   const io = new IntersectionObserver((list) => list.forEach((en) => { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } }), { threshold: 0.15 });

@@ -122,6 +122,10 @@
   const lcards = $$("#lcards article");
   const rPhase = $("#rPhase"), rStage = $("#rStage"), rMach = $("#rMach"), rAlt = $("#rAlt");
   const sepPt = fp.getPointAtLength(F_SEP * L);
+  const gMach = $("#gMach"), gNeedle = $("#gNeedle"), tapeFill = $("#tapeFill"), tapeMark = $("#tapeMark");
+  const pip1 = $("#pip1"), pip2 = $("#pip2"), segs = $$("#rSegs u");
+  const GLEN = gMach.getTotalLength();
+  gMach.style.strokeDasharray = `${GLEN} ${GLEN}`;
   const launch = $("#launch");
 
   function drawFlight(lp) {
@@ -171,6 +175,14 @@
     if (lp < 0.04) alt = 0;
     else if (q.x < 720) alt = Math.max(0, ((504 - q.y) / 334) * 15000);
     else alt = Math.max(10, ((660 - q.y) / 490) * 15000);
+    gMach.style.strokeDashoffset = (GLEN * (1 - clamp(mach / 3))).toFixed(1);
+    gNeedle.setAttribute("transform", `rotate(${(-90 + 180 * clamp(mach / 3)).toFixed(1)} 50 52)`);
+    const altF = hit ? 0 : clamp(alt / 15000);
+    tapeFill.style.height = `${(altF * 100).toFixed(1)}%`;
+    tapeMark.style.bottom = `${(altF * 100).toFixed(1)}%`;
+    segs.forEach((u, i) => u.classList.toggle("on", i < ph + (hit ? 1 : 0)));
+    pip1.classList.toggle("on", ph >= 1 && boosting);
+    pip2.classList.toggle("on", ph >= 1 && !boosting);
     rAlt.textContent = hit ? "0 m" : alt >= 1000 ? `${(alt / 1000).toFixed(1)} km` : `${Math.round(alt)} m`;
   }
 
@@ -388,6 +400,8 @@
     io2.unobserve(en.target);
   }), { threshold: 0.4 });
   $$(".bs").forEach((b) => io2.observe(b));
+
+  $("#toTop").addEventListener("click", (ev) => { ev.preventDefault(); scrollTo({ top: 0, behavior: "smooth" }); });
 
   // reveal blocks
   const io = new IntersectionObserver((list) => list.forEach((en) => { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } }), { threshold: 0.15 });
