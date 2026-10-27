@@ -17,4 +17,4 @@ node build.mjs   # writes index.html
 
 An educational explainer built from public sources. Not affiliated with BrahMos Aerospace, DRDO or any government.
 
-Made with ♥ by [Prateek Kanurkar](https://github.com/prateekkanurkar)
+Made with ♥ by [Prateek Kanurkar](https://github.com/KanurkarPrateek)
